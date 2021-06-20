@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="350" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -24,17 +24,29 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Label Content="Přeprodejní kalkulačka" Grid.Row="1" Grid.Column="1"
-               HorizontalAlignment="Center" Margin="0,10" Grid.ColumnSpan="2" />
+               HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10" Grid.ColumnSpan="2" />
 
-        <Label Content="Zadej náklady:" Grid.Row="2" Grid.Column="1" Margin ="10,5"
+        <Label Content="Zadej náklady:" Grid.Row="2" Grid.Column="1" Margin ="5,0,5,15"
                HorizontalAlignment="Center"/>
-        <TextBox Text="{Binding _startCost}" Grid.Row="2" Grid.Column="2" Margin="5" x:Name="Costs"/>
-        <Button x:Name="AddCosts" Content="Zadej náklady na opravu" Grid.Column="1" Grid.Row="3" Margin="10,8"/>
-        <TextBox Text="{Binding _handlingCost}" Grid.Row="3" Grid.Column="2" Margin="5" x:Name="AddCostsBox"/>
-        <Label Content="Zadej požadovaný výdělek" Grid.Row="4" Grid.Column="1" Margin ="10,5" 
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <TextBox Text="{Binding _startCost}"  Height="23"/>
+            <TextBlock Text="Zadaná hodnota musí byýt číslo >= nule." Foreground="Red" Visibility="Hidden"/>
+        </StackPanel>
+        
+        <Label Content="Zadej náklady na opravu:" Grid.Row="3" Grid.Column="1" Margin ="5,0,5,15"
                HorizontalAlignment="Center"/>
-        <TextBox Text="{Binding _price}" Grid.Row="4" Grid.Column="2" Margin="5" x:Name="Profit"/>
+        <StackPanel Grid.Row="3" Grid.Column="2">
+            <TextBox Text="{Binding _handlingCost}"  Height="23"/>
+            <TextBlock Text="Zadaná hodnota musí byýt číslo >= nule." Foreground="Red" Visibility="Hidden"/>
+        </StackPanel>
+        
+        <Label Content="Zadej výdělek:" Grid.Row="4" Grid.Column="1" Margin ="5,0,5,15"
+               HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="4" Grid.Column="2">
+            <TextBox Text="{Binding _price}"  Height="23"/>
+            <TextBlock Text="Zadaná hodnota musí byýt číslo >= nule." Foreground="Red" Visibility="Hidden"/>
+        </StackPanel>
         <Button Content="OK" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="2"
-                Margin="100,10" Height="30" Click="Button_Click"/>
+                Margin="100,10" Height="30" Click="Button_Click" />
     </Grid>
 </Window>
