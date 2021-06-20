@@ -3,10 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Calculator3"
+        xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Content="Přeprodejní kalkulačka" Grid.Row="1" Grid.Column="1"
+               HorizontalAlignment="Center" Margin="0,10" Grid.ColumnSpan="2" />
+
+        <Label Content="Zadej náklady:" Grid.Row="2" Grid.Column="1" Margin ="10,5"
+               HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding _startCost}" Grid.Row="2" Grid.Column="2" Margin="5" x:Name="Costs"/>
+        <Button x:Name="AddCosts" Content="Zadej náklady na opravu" Grid.Column="1" Grid.Row="3" Margin="10,8"/>
+        <TextBox Text="{Binding _handlingCost}" Grid.Row="3" Grid.Column="2" Margin="5" x:Name="AddCostsBox"/>
+        <Label Content="Zadej požadovaný výdělek" Grid.Row="4" Grid.Column="1" Margin ="10,5" 
+               HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding _price}" Grid.Row="4" Grid.Column="2" Margin="5" x:Name="Profit"/>
+        <Button Content="OK" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                Margin="100,10" Height="30" Click="Button_Click"/>
     </Grid>
 </Window>
